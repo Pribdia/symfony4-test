@@ -1,0 +1,28 @@
+/* Style générale */
+
+.capitalize {
+    text-transform: capitalize;
+}
+
+h1 {
+    border: 2px #e3f2fd solid;
+    text-align: center;
+    padding: 5px;
+}
+
+.bg-first-color, .active {
+    background-color: #e3f2fd !important;
+}
+
+button.bg-first-color:hover, a.bg-first-color:hover {
+    background-color: #a9d2f1 !important;
+    color: white;
+}
+
+/* Menu */
+
+.menu-nav {
+    padding-left: 100px !important;
+    padding-right: 100px !important;
+}
+

@@ -1,0 +1,39 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Connexion {% endblock %}
+
+{% block body %}
+    <h1>Connexion</h1>
+
+    <div class="row m-5">
+        <div class="col-6">
+            <div class="mx-3">
+                {% if error %}
+                    <div class="alert alert-danger">
+                        Combinaison identifient/mot de passe invalide.
+                    </div>
+                {% endif %}
+                {{ form_start(form) }}
+                {{ form_errors(form) }}
+
+                {{ form_row(form.email,{ 'value': lastUsername }) }}
+                {{ form_row(form.password) }}
+
+                {{ form_widget(form.send, {
+                    'attr': {'class': 'btn bg-first-color'},
+                })}}
+
+                {{ form_rest(form) }}
+
+                {{ form_end(form) }}
+            </div>
+        </div>
+        <div class="col-6">
+            <h2>Vous n'avez pas de compte ?</h2>
+            <br>
+            <hr>
+            <br>
+            <a class="btn bg-first-color" href="{{ path('registration') }}">Inscrivez-vous !</a>
+        </div>
+    </div>
+{% endblock %}

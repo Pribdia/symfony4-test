@@ -1,0 +1,28 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Activités{% endblock %}
+
+{% block body %}
+<h1>Activités</h1>
+
+<div class="row m-5">
+    <div class=" well mx-3">
+        {{ form_start(form) }}
+        {{ form_errors(form) }}
+
+        {{ form_row(form.name) }}
+        {{ form_row(form.start) }}
+        {{ form_row(form.end) }}
+        {{ form_row(form.minAge) }}
+        {{ form_row(form.nbParticipant) }}
+
+        {{ form_widget(form.send, {
+            'attr': {'class': 'btn bg-first-color'},
+        })}}
+
+        {{ form_rest(form) }}
+
+        {{ form_end(form) }}
+    </div>
+</div>
+{% endblock %}

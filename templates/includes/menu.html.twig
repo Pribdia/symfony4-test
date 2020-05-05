@@ -1,0 +1,23 @@
+<nav class="navbar navbar-expand-lg navbar-light bg-first-color menu-nav">
+    <a class="navbar-brand" href="{{ path('activity') }}">Activités |</a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarText" aria-controls="navbarText" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarText">
+        <ul class="navbar-nav mr-auto">
+            <li class="nav-item">
+                <a class="nav-link" href="{{ path('activity') }}">Liste des activités</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="{{ path('activity_new') }}">Ajouter une activité</a>
+            </li>
+        </ul>
+        <span class="navbar-text capitalize">
+        {% if is_granted('IS_AUTHENTICATED_FULLY') %}
+            Bonjour, {{ app.user.firstName }} {{ app.user.lastName }} <a class="nav-link" href="{{ path('logout') }}" class="btn bg-first-color"><i class="fa fa-sign-out" aria-hidden="true"></i></a>
+        {% else %}
+            Invité
+        {% endif %}
+        </span>
+    </div>
+</nav>

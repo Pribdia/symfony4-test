@@ -1,0 +1,27 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Activités{% endblock %}
+
+{% block body %}
+<h1>Activités</h1>
+
+<div class="row m-5">
+    {% for activity in activities %}
+        <div class="card m-2" style="width: 18rem;">
+            <div class="card-body">
+                <h5 class="card-title">{{ activity.name|upper }}</h5>
+                <h6 class="card-subtitle mb-2 text-muted">Début : {{ activity.start|date("d/m/Y") }}</h6>
+                <h6 class="card-subtitle mb-2 text-muted">Fin : {{ activity.end|date("d/m/Y") }}</h6>
+                <p class="card-text">Pour vous incrire, vous devez avoir {{ activity.minAge }} ans.</p>
+                <p class="card-text">Il ne reste que {{ activity.getNbrestPlace }} /  {{ activity.nbParticipant }} place(s).</p>
+                <br>
+                {% if activity.isCheck %}
+                    <a href="{{ path('activity_unregistration', {id: activity.id}) }}" class="btn bg-first-color">Desinscrivez-vous ! <i class="fa fa-times" aria-hidden="true"></i></a>
+                {% else %}
+                    <a href="{{ path('activity_registration', {id: activity.id}) }}" class="btn bg-first-color">Incrivez-vous ! <i class="fa fa-check" aria-hidden="true"></i></a>
+                {% endif %}
+            </div>
+        </div>
+    {% endfor %}
+</div>
+{% endblock %}
